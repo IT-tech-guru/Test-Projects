@@ -15,4 +15,3 @@ namespace SimeonGenov_TaskATP.Helpers
         }
     }
 }
-1
