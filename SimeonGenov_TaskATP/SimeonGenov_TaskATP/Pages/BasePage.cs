@@ -13,6 +13,6 @@ namespace SimeonGenov_TaskATP.Pages
 
         public IWebDriver Driver { get; private set; }
 
-        public WebDriverWait Wait => new WebDriverWait(this.Driver, TimeSpan.FromSeconds(3));
+        public WebDriverWait Wait => new WebDriverWait(Driver, TimeSpan.FromSeconds(3));
     }
 }

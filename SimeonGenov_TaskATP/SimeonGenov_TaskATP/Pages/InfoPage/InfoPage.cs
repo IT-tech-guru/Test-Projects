@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SimeonGenov_TaskATP.Helpers;
 
 namespace SimeonGenov_TaskATP.Pages.InfoPage
 {
@@ -26,14 +27,9 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
 
             string name = string.Format(@"{0} - {1} - {2}",city, state, zipCode);
             string fileFullPath = string.Format(@"..\..\..\Screenshots\{0}.png", name);
-            TakeScreenshot(Driver, fileFullPath);
+            
+            Utility.TakeScreenshot(Driver, fileFullPath);
         }
 
-        private void TakeScreenshot(IWebDriver driver, string saveLocation)
-        {
-            ITakesScreenshot ssdriver = driver as ITakesScreenshot;
-            Screenshot screenshot = ssdriver.GetScreenshot();
-            screenshot.SaveAsFile(saveLocation, ScreenshotImageFormat.Png);
-        }
     }
 }
