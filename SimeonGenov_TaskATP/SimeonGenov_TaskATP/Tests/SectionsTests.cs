@@ -11,7 +11,7 @@ using SimeonGenov_TaskATP.Pages.InfoPage;
 namespace SimeonGenov_TaskATP.Tests
 {
     [TestClass]
-    public class Test1
+    public class SectionsTests
     {
         private static IWebDriver _driver;
         private static HomePage _homePage;
@@ -44,7 +44,7 @@ namespace SimeonGenov_TaskATP.Tests
         }
 
         [TestMethod]
-        public void TestZipCodes()
+        public void ScreenshotFirstTenResultsWithNameLetters()
         {
             _homePage.NavigateTo();
             _homePage.GoToSearch();
