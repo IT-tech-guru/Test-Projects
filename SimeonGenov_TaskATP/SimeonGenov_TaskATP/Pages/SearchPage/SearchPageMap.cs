@@ -7,6 +7,6 @@ namespace SimeonGenov_TaskATP.Pages.SearchPage
 {
     public partial class SearchPage
     {
-        public IWebElement AdvancedSearchButton => this.Wait.Until(d => d.FindElement(By.Id("ui-id-7")));
+        public IWebElement AdvancedSearchButton => Wait.Until(d => d.FindElement(By.Id("ui-id-7")));
     }
 }

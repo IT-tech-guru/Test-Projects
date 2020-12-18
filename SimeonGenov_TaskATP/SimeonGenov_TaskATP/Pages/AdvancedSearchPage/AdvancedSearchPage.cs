@@ -7,13 +7,14 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchPage
 {
     public partial class AdvancedSearchPage : BasePage
     {
-        public AdvancedSearchPage(IWebDriver driver) : base(driver)
+        public AdvancedSearchPage(IWebDriver driver) 
+            : base(driver)
         {
         }
 
         public void ClickTownField()
         {
-            this.TownField.Click();
+            TownField.Click();
         }
 
         public void FillTownField(string text)
@@ -23,7 +24,7 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchPage
 
         public void ClickFindZIPCodesButton()
         {
-            this.FindZIPCodesButton.Click();
+            FindZIPCodesButton.Click();
         }
     }
 }

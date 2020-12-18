@@ -8,6 +8,6 @@ namespace SimeonGenov_TaskATP.Pages.HomePage
 {
     public partial class HomePage
     {
-        public IWebElement SearchButton => this.Wait.Until(d => d.FindElement(By.CssSelector("[href*='/search.asp']")));
+        public IWebElement SearchButton => Wait.Until(d => d.FindElement(By.CssSelector("[href*='/search.asp']")));
     }
 }

@@ -10,10 +10,10 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchResultsPage
 {
     public partial class AdvancedSearchResultsPage : BasePage
     {
-        public AdvancedSearchResultsPage(IWebDriver driver) : base(driver)
+        public AdvancedSearchResultsPage(IWebDriver driver) 
+            : base(driver)
         {
         }
-
 
         public void ClickResult1()
         {
@@ -65,5 +65,4 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchResultsPage
             Result10.Click();
         }
     }
-
 }

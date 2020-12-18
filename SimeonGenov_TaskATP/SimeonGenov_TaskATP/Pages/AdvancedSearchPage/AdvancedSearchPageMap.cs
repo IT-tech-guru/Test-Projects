@@ -7,8 +7,7 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchPage
 {
     public partial class AdvancedSearchPage
     {
-        public IWebElement TownField => this.Wait.Until(d => d.FindElement(By.CssSelector("input[name ='fld-city'][size ='15']")));
-        public IWebElement FindZIPCodesButton => this.Wait.Until(d => d.FindElement(By.CssSelector("#ui-id-8 > form > input.srchButton")));
-    
+        public IWebElement TownField => Wait.Until(d => d.FindElement(By.CssSelector("input[name ='fld-city'][size ='15']")));
+        public IWebElement FindZIPCodesButton => Wait.Until(d => d.FindElement(By.CssSelector("#ui-id-8 > form > input.srchButton")));
     }
 }

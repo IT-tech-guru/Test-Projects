@@ -1,11 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
-using System.Threading;
-using System.IO;
-using System.Reflection;
 using SimeonGenov_TaskATP.Pages.HomePage;
 using SimeonGenov_TaskATP.Pages.SearchPage;
 using SimeonGenov_TaskATP.Pages.AdvancedSearchPage;
@@ -24,7 +20,6 @@ namespace SimeonGenov_TaskATP.Tests
         private static AdvancedSearchResultsPage _advancedSearchResultsPage;
         private static InfoPage _infoPage;
 
-
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
@@ -36,13 +31,10 @@ namespace SimeonGenov_TaskATP.Tests
             _advancedSearchResultsPage = new AdvancedSearchResultsPage(_driver);
             _infoPage = new InfoPage(_driver);
 
-
             //string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             //ChromeOptions options = new ChromeOptions();
             //options.AddArgument("start-maximized");
             //_driver = new ChromeDriver(path, options);
-
-
         }
 
         [ClassCleanup]
@@ -50,7 +42,6 @@ namespace SimeonGenov_TaskATP.Tests
         {
             _driver.Quit();
         }
-
 
         [TestMethod]
         public void TestZipCodes()
@@ -100,8 +91,6 @@ namespace SimeonGenov_TaskATP.Tests
             _infoPage.OpenGoogleMapsURL();
             _driver.Navigate().Back();
             _driver.Navigate().Back();
-
         }   
-
     }
 }
