@@ -8,6 +8,7 @@ using SimeonGenov_TaskATP.Pages.AdvancedSearchPage;
 using SimeonGenov_TaskATP.Pages.AdvancedSearchResultsPage;
 using SimeonGenov_TaskATP.Pages.InfoPage;
 using SimeonGenov_TaskATP.Helpers;
+using System.Collections.Generic;
 
 namespace SimeonGenov_TaskATP.Tests
 {
@@ -48,45 +49,29 @@ namespace SimeonGenov_TaskATP.Tests
             _advancedSearchPage.ClickTownField();
             _advancedSearchPage.FillTownField("sim");
             _advancedSearchPage.ClickFindZIPCodesButton();
-
-            // Looping through a list called "Results", containing all 10 entries, lead to an error (finding the elements)
-
-            _advancedSearchResultsPage.ClickResult1();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult2();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult3();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult4();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult5();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult6();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult7();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult8();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult9();
-            OpenInfoAndGoBack();
-
-            _advancedSearchResultsPage.ClickResult10();
-            OpenInfoAndGoBack();
+            GoThroughLinks(ExctractLinks());
         }
-    
-        public void OpenInfoAndGoBack()
+
+        private List<string> ExctractLinks()
         {
-            _infoPage.OpenGoogleMapsURL();
-            _driver.NavigateBack();
-            _driver.NavigateBack();
-        }   
+            var links = new List<string>();
+            List<Element> elements = _advancedSearchResultsPage.Results;
+            foreach (var element in elements)
+            {
+                links.Add(element.GetAttribute("href"));
+            }
+            return links;
+        }
+
+        private void GoThroughLinks(List<string> links)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                _driver.GoToUrl(links[i]);
+                _infoPage.OpenGoogleMapsURL();
+                _driver.NavigateBack();
+                _driver.NavigateBack();
+            }
+        }
     }
 }
