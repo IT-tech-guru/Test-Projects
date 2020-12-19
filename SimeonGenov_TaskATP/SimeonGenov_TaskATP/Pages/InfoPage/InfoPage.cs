@@ -2,16 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SimeonGenov_TaskATP.Helpers;
 
 namespace SimeonGenov_TaskATP.Pages.InfoPage
 {
     public partial class InfoPage : BasePage
     {
-        public InfoPage(IWebDriver driver) : base(driver)
+        public IWebDriver _webDriver;
+        public InfoPage(Driver driver) 
+            : base(driver)
         {
+            _webDriver = Driver.GetWebDriverField();
         }
 
-        
         public void OpenGoogleMapsURL()
         {
             var zipCode = ZipCode.Text;
@@ -19,21 +22,16 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
             var state = State.Text;
             var latitude = Latitude.Text;
             var longitude = Longitude.Text;
+
             string urlBase = "http://www.google.com/maps/place/";
             string url = urlBase + latitude + ", " + longitude;
-            Driver.Navigate().GoToUrl(url);
+            Driver.GoToUrl(url);
 
+            string name = string.Format(@"{0} - {1} - {2}",city, state, zipCode);
+            string fileFullPath = string.Format(@"..\..\..\Screenshots\{0}.png", name);
 
-            string name = String.Format(@"{0} - {1} - {2}",city, state, zipCode);
-            string fileFullPath = String.Format(@"..\..\..\Screenshots\{0}.png", name);
-            TakeScreenshot(Driver, fileFullPath);
+            Utility.TakeScreenshot(Driver.GetWebDriverField(), fileFullPath);
         }
 
-        private void TakeScreenshot(IWebDriver driver, string saveLocation)
-        {
-            ITakesScreenshot ssdriver = driver as ITakesScreenshot;
-            Screenshot screenshot = ssdriver.GetScreenshot();
-            screenshot.SaveAsFile(saveLocation, ScreenshotImageFormat.Png);
-        }
     }
 }

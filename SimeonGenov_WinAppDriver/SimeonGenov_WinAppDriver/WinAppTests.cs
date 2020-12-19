@@ -136,10 +136,4 @@ namespace SimeonGenov_WinAppDriver
             return _driver.FindElementByAccessibilityId("CalculatorResults").Text.Replace("Display is", string.Empty).Trim();
         }
     }
-
-    change and merge feature branch to develop locally - create commit
-
-    merge feature branch to develop via pull request
-
-        +1 commit
 }

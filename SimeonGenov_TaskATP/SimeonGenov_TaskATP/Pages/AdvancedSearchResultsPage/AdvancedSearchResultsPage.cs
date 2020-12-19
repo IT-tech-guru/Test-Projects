@@ -5,15 +5,16 @@ using System.Diagnostics;
 using System.Text;
 using SimeonGenov_TaskATP.Pages.InfoPage;
 using System.Threading;
+using SimeonGenov_TaskATP.Helpers;
 
 namespace SimeonGenov_TaskATP.Pages.AdvancedSearchResultsPage
 {
     public partial class AdvancedSearchResultsPage : BasePage
     {
-        public AdvancedSearchResultsPage(IWebDriver driver) : base(driver)
+        public AdvancedSearchResultsPage(Driver driver) 
+            : base(driver)
         {
         }
-
 
         public void ClickResult1()
         {
@@ -65,5 +66,4 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchResultsPage
             Result10.Click();
         }
     }
-
 }

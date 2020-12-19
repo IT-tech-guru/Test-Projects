@@ -1,0 +1,19 @@
+﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SimeonGenov_TaskATP.Helpers
+{
+    public abstract class Driver
+    {
+        public abstract void Start(Browser browser);
+        public abstract void Quit();
+        public abstract void GoToUrl(string url);
+        public abstract void NavigateBack();
+        public abstract Element FindElement(By locator);
+        public abstract List<Element> FindElements(By locator);
+        public abstract IWebDriver GetWebDriverField();
+
+    }
+}

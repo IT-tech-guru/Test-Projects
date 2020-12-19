@@ -1,19 +1,18 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SimeonGenov_TaskATP.Helpers;
 
 namespace SimeonGenov_TaskATP.Pages.SearchPage
 {
     public partial class SearchPage : BasePage
     {
-        public SearchPage(IWebDriver driver) : base(driver)
+        public SearchPage(Driver driver) 
+            : base(driver)
         {
         }
 
         public void GoToAdvancedSearch()
         {
-            this.AdvancedSearchButton.Click();
+            AdvancedSearchButton.Click();
         }
     }
 }
