@@ -1,8 +1,8 @@
+using System;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Windows;
-using System;
-using System.Threading;
 
 namespace SimeonGenov_WinAppDriver
 {
@@ -63,7 +63,6 @@ namespace SimeonGenov_WinAppDriver
 
         //(°C × 9/5) + 32 = °F
 
-
         private void CelsiusToFahrenHeit()
         {
             _driver.FindElementByName("Multiply by").Click();
@@ -77,9 +76,6 @@ namespace SimeonGenov_WinAppDriver
             _driver.FindElementByName("Two").Click();
             _driver.FindElementByName("Equals").Click();
         }
-
-
-
 
         [Test]
         [TestCase("One", "0.0010764")]
@@ -124,12 +120,7 @@ namespace SimeonGenov_WinAppDriver
             _driver.FindElementByName("Six").Click();
             _driver.FindElementByName("Four").Click();
             _driver.FindElementByName("Equals").Click();
-
-
         }
-
-
-
 
         private string GetCalculatorResultText()
         {
