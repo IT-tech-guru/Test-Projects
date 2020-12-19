@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using SimeonGenov_TaskATP.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchPage
 {
     public partial class AdvancedSearchPage : BasePage
     {
-        public AdvancedSearchPage(IWebDriver driver) 
+        public AdvancedSearchPage(Driver driver) 
             : base(driver)
         {
         }
@@ -19,7 +20,7 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchPage
 
         public void FillTownField(string text)
         {
-            TownField.SendKeys(text);
+            TownField.TypeText(text);
         }
 
         public void ClickFindZIPCodesButton()

@@ -9,9 +9,9 @@ namespace SimeonGenov_TaskATP.Helpers
     {
         public static void TakeScreenshot(IWebDriver driver, string saveLocation)
         {
-            ITakesScreenshot ssdriver = driver as ITakesScreenshot;
-            Screenshot screenshot = ssdriver.GetScreenshot();
-            screenshot.SaveAsFile(saveLocation, ScreenshotImageFormat.Png);
+            // Cannot convert "Driver" to "ITakesScreenshot"
+            Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+            ss.SaveAsFile(saveLocation, ScreenshotImageFormat.Png);
         }
     }
 }

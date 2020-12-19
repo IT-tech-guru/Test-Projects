@@ -7,13 +7,14 @@ using SimeonGenov_TaskATP.Pages.SearchPage;
 using SimeonGenov_TaskATP.Pages.AdvancedSearchPage;
 using SimeonGenov_TaskATP.Pages.AdvancedSearchResultsPage;
 using SimeonGenov_TaskATP.Pages.InfoPage;
+using SimeonGenov_TaskATP.Helpers;
 
 namespace SimeonGenov_TaskATP.Tests
 {
     [TestClass]
     public class SectionsTests
     {
-        private static IWebDriver _driver;
+        private static Driver _driver;
         private static HomePage _homePage;
         private static SearchPage _searchpage;
         private static AdvancedSearchPage _advancedSearchPage;
@@ -23,18 +24,14 @@ namespace SimeonGenov_TaskATP.Tests
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
-            _driver = new FirefoxDriver(Environment.CurrentDirectory);
+            _driver = new WebDriver();
+            _driver.Start(Browser.FireFox);
 
             _homePage = new HomePage(_driver);
             _searchpage = new SearchPage(_driver);
             _advancedSearchPage = new AdvancedSearchPage(_driver);
             _advancedSearchResultsPage = new AdvancedSearchResultsPage(_driver);
             _infoPage = new InfoPage(_driver);
-
-            //string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            //ChromeOptions options = new ChromeOptions();
-            //options.AddArgument("start-maximized");
-            //_driver = new ChromeDriver(path, options);
         }
 
         [ClassCleanup]
@@ -42,7 +39,6 @@ namespace SimeonGenov_TaskATP.Tests
         {
             _driver.Quit();
         }
-
         [TestMethod]
         public void ScreenshotFirstTenResultsWithNameLetters()
         {
@@ -89,8 +85,8 @@ namespace SimeonGenov_TaskATP.Tests
         public void OpenInfoAndGoBack()
         {
             _infoPage.OpenGoogleMapsURL();
-            _driver.Navigate().Back();
-            _driver.Navigate().Back();
+            _driver.NavigateBack();
+            _driver.NavigateBack();
         }   
     }
 }

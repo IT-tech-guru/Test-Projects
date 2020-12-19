@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using SimeonGenov_TaskATP.Helpers;
 
 namespace SimeonGenov_TaskATP.Pages.HomePage
 {
     public partial class HomePage
     {
-        public IWebElement SearchButton => Wait.Until(d => d.FindElement(By.CssSelector("[href*='/search.asp']")));
+        public Element SearchButton => Driver.FindElement(By.CssSelector("[href*='/search.asp']"));
     }
 }

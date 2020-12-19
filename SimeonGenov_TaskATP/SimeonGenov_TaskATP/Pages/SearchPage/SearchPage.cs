@@ -1,10 +1,11 @@
 ﻿using OpenQA.Selenium;
+using SimeonGenov_TaskATP.Helpers;
 
 namespace SimeonGenov_TaskATP.Pages.SearchPage
 {
     public partial class SearchPage : BasePage
     {
-        public SearchPage(IWebDriver driver) 
+        public SearchPage(Driver driver) 
             : base(driver)
         {
         }

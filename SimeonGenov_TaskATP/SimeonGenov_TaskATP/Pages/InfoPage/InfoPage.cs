@@ -8,9 +8,11 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
 {
     public partial class InfoPage : BasePage
     {
-        public InfoPage(IWebDriver driver) 
+        public IWebDriver _webDriver;
+        public InfoPage(Driver driver) 
             : base(driver)
         {
+            _webDriver = Driver.GetWebDriverField();
         }
 
         public void OpenGoogleMapsURL()
@@ -23,12 +25,12 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
 
             string urlBase = "http://www.google.com/maps/place/";
             string url = urlBase + latitude + ", " + longitude;
-            Driver.Navigate().GoToUrl(url);
+            Driver.GoToUrl(url);
 
             string name = string.Format(@"{0} - {1} - {2}",city, state, zipCode);
             string fileFullPath = string.Format(@"..\..\..\Screenshots\{0}.png", name);
-            
-            Utility.TakeScreenshot(Driver, fileFullPath);
+
+            Utility.TakeScreenshot(Driver.GetWebDriverField(), fileFullPath);
         }
 
     }
