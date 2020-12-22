@@ -53,18 +53,8 @@ namespace SimeonGenov_TaskATP.Tests
             _advancedSearchPage.ClickTownField();
             _advancedSearchPage.FillTownField("sim");
             _advancedSearchPage.ClickFindZIPCodesButton();
-            GoThroughLinks(ExctractLinks());
-        }
-
-        private List<string> ExctractLinks()
-        {
-            var links = new List<string>();
-            List<Element> elements = _advancedSearchResultsPage.Results;
-            foreach (var element in elements)
-            {
-                links.Add(element.GetAttribute("href"));
-            }
-            return links;
+            _advancedSearchResultsPage.ExtractLinks();
+            GoThroughLinks(_advancedSearchResultsPage.ExtractLinks());            
         }
 
         private void GoThroughLinks(List<string> links)
