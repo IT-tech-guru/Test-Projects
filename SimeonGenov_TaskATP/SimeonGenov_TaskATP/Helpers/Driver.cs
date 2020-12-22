@@ -7,6 +7,7 @@ namespace SimeonGenov_TaskATP.Helpers
 {
     public abstract class Driver
     {
+        public IWebDriver WebDriverObj { get; }
         public abstract void Start(Browser browser);
         public abstract void Quit();
         public abstract void GoToUrl(string url);

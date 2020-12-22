@@ -11,8 +11,10 @@ namespace SimeonGenov_TaskATP.Helpers
 {
     public class WebDriver : Driver
     {
-        private IWebDriver _webDriver;
+        public IWebDriver _webDriver;
         private WebDriverWait _webDriverWait;
+
+        public new IWebDriver WebDriverObj { get { return _webDriver; } }
 
         public override IWebDriver GetWebDriverField()
         {

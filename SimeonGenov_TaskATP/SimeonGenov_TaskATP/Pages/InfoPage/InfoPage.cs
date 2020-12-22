@@ -8,11 +8,10 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
 {
     public partial class InfoPage : BasePage
     {
-        public IWebDriver _webDriver;
         public InfoPage(Driver driver) 
             : base(driver)
         {
-            _webDriver = Driver.GetWebDriverField();
+
         }
 
         public void OpenGoogleMapsURL()
@@ -31,6 +30,9 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
             string fileFullPath = string.Format(@"..\..\..\Screenshots\{0}.png", name);
 
             Utility.TakeScreenshot(Driver.GetWebDriverField(), fileFullPath);
+            
+            // This does not work. WebDriverOnj property is Null.
+            //Utility.TakeScreenshot(Driver.WebDriverObj, fileFullPath);
         }
 
     }
