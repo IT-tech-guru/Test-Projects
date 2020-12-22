@@ -26,6 +26,14 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
             string url = urlBase + latitude + ", " + longitude;
             Driver.GoToUrl(url);
 
+            // Click on cookies consent "I agree" - cannot find element properly (not sure why).
+            // Same Xpath selector is valid when using console in browser
+            //var iAgreeCookies = Driver.FindElement(By.XPath("(//span[@class = 'RveJvd snByac'])[1]"));
+            //iAgreeCookies.Click();
+
+            //Remove cookie consent as an alert?
+            //Driver.GetWebDriverField().SwitchTo().Alert().Accept();
+
             string name = string.Format(@"{0} - {1} - {2}",city, state, zipCode);
             string fileFullPath = string.Format(@"..\..\..\Screenshots\{0}.png", name);
 
