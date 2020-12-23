@@ -46,6 +46,8 @@ namespace SimeonGenov_TaskATP.Helpers
         public override void GoToUrl(string url)
         {
             _webDriver.Navigate().GoToUrl(url);
+
+            _webDriverWait.Until(driver1 => ((IJavaScriptExecutor)_webDriver).ExecuteScript("return document.readyState").Equals("complete"));
         }
 
         public override void NavigateBack()

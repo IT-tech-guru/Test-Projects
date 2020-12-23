@@ -19,6 +19,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Solution Items\**" />
+    <EmbeddedResource Remove="Solution Items\**" />
+    <None Remove="Solution Items\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
@@ -36,7 +42,6 @@
 
   <ItemGroup>
     <Folder Include="Screenshots\" />
-    <Folder Include="Solution Items\" />
   </ItemGroup>
 
 </Project>

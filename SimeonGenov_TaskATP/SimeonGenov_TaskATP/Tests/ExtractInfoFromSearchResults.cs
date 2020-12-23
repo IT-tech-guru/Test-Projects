@@ -54,6 +54,7 @@ namespace SimeonGenov_TaskATP.Tests
             _advancedSearchPage.FillTownField("sim");
             _advancedSearchPage.ClickFindZIPCodesButton();
             _advancedSearchResultsPage.ExtractLinks();
+            _infoPage.AddCookieForGoogleMaps();
             GoThroughLinks(_advancedSearchResultsPage.ExtractLinks());            
         }
 

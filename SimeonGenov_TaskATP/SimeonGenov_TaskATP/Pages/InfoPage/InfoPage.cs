@@ -8,10 +8,18 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
 {
     public partial class InfoPage : BasePage
     {
-        public InfoPage(Driver driver) 
+        private IWebDriver _webDriver;
+        public InfoPage(Driver driver)
             : base(driver)
         {
+            _webDriver = Driver.GetWebDriverField();
+        }
 
+        public void AddCookieForGoogleMaps()
+        {
+            DateTime time = DateTime.Now.AddYears(18);
+            _webDriver.Manage().Cookies.DeleteCookieNamed("CONSENT");
+            _webDriver.Manage().Cookies.AddCookie(new Cookie("CONSENT", "YES+BG.bg+V9+BX", ".google.com", "/", time));
         }
 
         public void OpenGoogleMapsURL()
@@ -26,22 +34,14 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
             string url = urlBase + latitude + ", " + longitude;
             Driver.GoToUrl(url);
 
-            // Click on cookies consent "I agree" - cannot find element properly (not sure why).
-            // Same Xpath selector is valid when using console in browser
-            //var iAgreeCookies = Driver.FindElement(By.XPath("(//span[@class = 'RveJvd snByac'])[1]"));
-            //iAgreeCookies.Click();
-
-            //Remove cookie consent as an alert?
-            //Driver.GetWebDriverField().SwitchTo().Alert().Accept();
-
-            string name = string.Format(@"{0} - {1} - {2}",city, state, zipCode);
+            string name = string.Format(@"{0} - {1} - {2}", city, state, zipCode);
             string fileFullPath = string.Format(@"..\..\..\Screenshots\{0}.png", name);
 
-            Utility.TakeScreenshot(Driver.GetWebDriverField(), fileFullPath);
-            
+            Utility.TakeScreenshot(_webDriver, fileFullPath);
+
             // This does not work. WebDriverOnj property is Null.
             //Utility.TakeScreenshot(Driver.WebDriverObj, fileFullPath);
         }
-
     }
 }
+
