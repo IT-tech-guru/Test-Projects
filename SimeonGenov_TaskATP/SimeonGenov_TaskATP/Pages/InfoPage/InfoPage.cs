@@ -12,7 +12,7 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
         public InfoPage(Driver driver)
             : base(driver)
         {
-            _webDriver = Driver.GetWebDriverField();
+            _webDriver = Driver.WebDriverProp;
         }
 
         public void AddCookieForGoogleMaps()

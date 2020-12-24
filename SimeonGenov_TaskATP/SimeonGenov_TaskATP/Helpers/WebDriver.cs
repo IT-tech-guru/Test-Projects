@@ -14,12 +14,7 @@ namespace SimeonGenov_TaskATP.Helpers
         public IWebDriver _webDriver;
         private WebDriverWait _webDriverWait;
 
-        public new IWebDriver WebDriverObj { get { return _webDriver; } }
-
-        public override IWebDriver GetWebDriverField()
-        {
-            return _webDriver;
-        }
+       public override IWebDriver WebDriverProp { get { return _webDriver; } }
 
         public override void Start(Browser browser)
         {
