@@ -37,10 +37,7 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
             string name = string.Format(@"{0} - {1} - {2}", city, state, zipCode);
             string fileFullPath = string.Format(@"..\..\..\Screenshots\{0}.png", name);
 
-            Utility.TakeScreenshot(_webDriver, fileFullPath);
-
-            // This does not work. WebDriverOnj property is Null.
-            //Utility.TakeScreenshot(Driver.WebDriverObj, fileFullPath);
+            Driver.TakeScreenshot(_webDriver, fileFullPath);
         }
     }
 }

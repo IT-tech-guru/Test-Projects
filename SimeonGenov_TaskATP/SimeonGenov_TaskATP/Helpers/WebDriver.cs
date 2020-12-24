@@ -73,5 +73,12 @@ namespace SimeonGenov_TaskATP.Helpers
 
             return elements;
         }
+
+        public override void TakeScreenshot(IWebDriver _webDriver, string saveLocation)
+        {
+            // Cannot convert "Driver" to "ITakesScreenshot"
+            Screenshot ss = ((ITakesScreenshot)_webDriver).GetScreenshot();
+            ss.SaveAsFile(saveLocation, ScreenshotImageFormat.Png);
+        }
     }
 }
