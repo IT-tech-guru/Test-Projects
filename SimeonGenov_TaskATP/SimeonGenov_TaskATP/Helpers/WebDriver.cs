@@ -11,13 +11,10 @@ namespace SimeonGenov_TaskATP.Helpers
 {
     public class WebDriver : Driver
     {
-        private IWebDriver _webDriver;
+        public IWebDriver _webDriver;
         private WebDriverWait _webDriverWait;
 
-        public override IWebDriver GetWebDriverField()
-        {
-            return _webDriver;
-        }
+       public override IWebDriver WebDriverProp { get { return _webDriver; } }
 
         public override void Start(Browser browser)
         {
@@ -44,6 +41,8 @@ namespace SimeonGenov_TaskATP.Helpers
         public override void GoToUrl(string url)
         {
             _webDriver.Navigate().GoToUrl(url);
+
+            _webDriverWait.Until(driver1 => ((IJavaScriptExecutor)_webDriver).ExecuteScript("return document.readyState").Equals("complete"));
         }
 
         public override void NavigateBack()
@@ -73,6 +72,12 @@ namespace SimeonGenov_TaskATP.Helpers
             }
 
             return elements;
+        }
+
+        public override void TakeScreenshot(IWebDriver _webDriver, string saveLocation)
+        {
+            Screenshot ss = ((ITakesScreenshot)_webDriver).GetScreenshot();
+            ss.SaveAsFile(saveLocation, ScreenshotImageFormat.Png);
         }
     }
 }

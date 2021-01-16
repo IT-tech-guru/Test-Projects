@@ -16,54 +16,16 @@ namespace SimeonGenov_TaskATP.Pages.AdvancedSearchResultsPage
         {
         }
 
-        public void ClickResult1()
+        public List<string> ExtractLinks()
         {
-            Result1.Click();
-        }
-
-        public void ClickResult2()
-        {
-            Result2.Click();
-        }
-
-        public void ClickResult3()
-        {
-            Result3.Click();
-        }
-
-        public void ClickResult4()
-        {
-            Result4.Click();
-        }
-
-        public void ClickResult5()
-        {
-            Result5.Click();
-        }
-
-        public void ClickResult6()
-        {
-            Result6.Click();
-        }
-
-        public void ClickResult7()
-        {
-            Result7.Click();
-        }
-
-        public void ClickResult8()
-        {
-            Result8.Click();
-        }
-
-        public void ClickResult9()
-        {
-            Result9.Click();
-        }
-
-        public void ClickResult10()
-        {
-            Result10.Click();
+            
+            var list = new List<string>();
+            for (int i = 1; i < 11; i++)
+            {
+                var element = Driver.FindElement(By.XPath("(//a[starts-with(@href, '/zip-code/')])[" + i +"]"));
+                list.Add(element.GetAttribute("href"));
+            }
+            return list;
         }
     }
 }

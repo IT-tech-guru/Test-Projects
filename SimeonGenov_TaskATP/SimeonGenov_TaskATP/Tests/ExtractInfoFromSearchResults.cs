@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using System;
+using System.IO;
 using SimeonGenov_TaskATP.Pages.HomePage;
 using SimeonGenov_TaskATP.Pages.SearchPage;
 using SimeonGenov_TaskATP.Pages.AdvancedSearchPage;
@@ -13,7 +14,7 @@ using System.Collections.Generic;
 namespace SimeonGenov_TaskATP.Tests
 {
     [TestClass]
-    public class SectionsTests
+    public class ExtractInfoFromSearchResults
     {
         private static Driver _driver;
         private static HomePage _homePage;
@@ -22,11 +23,14 @@ namespace SimeonGenov_TaskATP.Tests
         private static AdvancedSearchResultsPage _advancedSearchResultsPage;
         private static InfoPage _infoPage;
 
+
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
+            CreateScreenshotsDirectory();
+
             _driver = new WebDriver();
-            _driver.Start(Browser.FireFox);
+            _driver.Start(Browser.Chrome);
 
             _homePage = new HomePage(_driver);
             _searchpage = new SearchPage(_driver);
@@ -49,18 +53,9 @@ namespace SimeonGenov_TaskATP.Tests
             _advancedSearchPage.ClickTownField();
             _advancedSearchPage.FillTownField("sim");
             _advancedSearchPage.ClickFindZIPCodesButton();
-            GoThroughLinks(ExctractLinks());
-        }
-
-        private List<string> ExctractLinks()
-        {
-            var links = new List<string>();
-            List<Element> elements = _advancedSearchResultsPage.Results;
-            foreach (var element in elements)
-            {
-                links.Add(element.GetAttribute("href"));
-            }
-            return links;
+            _advancedSearchResultsPage.ExtractLinks();
+            _infoPage.AddCookieForGoogleMaps();
+            GoThroughLinks(_advancedSearchResultsPage.ExtractLinks());            
         }
 
         private void GoThroughLinks(List<string> links)
@@ -71,6 +66,15 @@ namespace SimeonGenov_TaskATP.Tests
                 _infoPage.OpenGoogleMapsURL();
                 _driver.NavigateBack();
                 _driver.NavigateBack();
+            }
+        }
+
+        private static void CreateScreenshotsDirectory()
+        {
+            string path = @"..\..\..\Screenshots";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
             }
         }
     }

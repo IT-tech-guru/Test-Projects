@@ -1,0 +1,25 @@
+﻿{
+  // ACTION REQUIRED: This file was automatically added to your project, but it
+  // will not take effect until additional steps are taken to enable it. See the
+  // following page for additional information:
+  //
+
+    "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+    "settings": {
+        "documentationRules": {
+            "companyName": "Automate The Planet Ltd.",
+            "copyrightText": "This source code is Copyright © {companyName} and MAY NOT be copied, reproduced,published, distributed or transmitted to or stored in any manner without priorwritten consent from {companyName} (bellatrix.solutions).",
+            "documentExposedElements": "false",
+            "documentInternalElements": "false",
+            "documentPrivateElements": "false",
+            "documentPrivateFields": "false"
+        },
+        "layoutRules": {
+            "newlineAtEndOfFile": "require"
+        },
+        "orderingRules": {
+            "systemUsingDirectivesFirst": "true",
+            "usingDirectivesPlacement": "outsideNamespace"
+        }
+    }
+}

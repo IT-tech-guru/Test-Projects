@@ -8,11 +8,18 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
 {
     public partial class InfoPage : BasePage
     {
-        public IWebDriver _webDriver;
-        public InfoPage(Driver driver) 
+        private IWebDriver _webDriver;
+        public InfoPage(Driver driver)
             : base(driver)
         {
-            _webDriver = Driver.GetWebDriverField();
+            _webDriver = Driver.WebDriverProp;
+        }
+
+        public void AddCookieForGoogleMaps()
+        {
+            DateTime time = DateTime.Now.AddYears(18);
+            _webDriver.Manage().Cookies.DeleteCookieNamed("CONSENT");
+            _webDriver.Manage().Cookies.AddCookie(new Cookie("CONSENT", "YES+BG.bg+V9+BX", ".google.com", "/", time));
         }
 
         public void OpenGoogleMapsURL()
@@ -27,11 +34,11 @@ namespace SimeonGenov_TaskATP.Pages.InfoPage
             string url = urlBase + latitude + ", " + longitude;
             Driver.GoToUrl(url);
 
-            string name = string.Format(@"{0} - {1} - {2}",city, state, zipCode);
+            string name = string.Format(@"{0} - {1} - {2}", city, state, zipCode);
             string fileFullPath = string.Format(@"..\..\..\Screenshots\{0}.png", name);
 
-            Utility.TakeScreenshot(Driver.GetWebDriverField(), fileFullPath);
+            Driver.TakeScreenshot(_webDriver, fileFullPath);
         }
-
     }
 }
+
