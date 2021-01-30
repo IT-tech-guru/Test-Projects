@@ -1,0 +1,8 @@
+line 1 from file: "same"
+line 2 from file: "same"
+line 3 from file: "same"
+line 4 from file: "same"
+line 5 from file: "same"
+line 6 from file: "same"
+line 7 from file: "same"
+line 8 from file: "same"

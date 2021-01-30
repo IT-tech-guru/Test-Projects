@@ -1,0 +1,2 @@
+﻿2.	Using the extension methods OrderBy() and ThenBy() with lambda expressions sort the workers 
+by ﬁrst name and last name in descending order.	

@@ -1,0 +1,1 @@
+﻿7.	Write a program that reads a list of words from a ﬁle words.txt and ﬁnds how many times each of the words is contained in another ﬁle test.txt. The result should be written in the ﬁle result.txt and the words should be sorted by the number of their occurrences in descending order. Handle all possible exceptions in your methods.

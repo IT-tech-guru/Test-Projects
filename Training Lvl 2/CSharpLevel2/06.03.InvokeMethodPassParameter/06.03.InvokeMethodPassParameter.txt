@@ -1,0 +1,2 @@
+﻿3.	Find GetCharacteristics method by name in type of Worker. 
+Invoke GetCharacteristics method using reﬂection, also pass a parameter "false"

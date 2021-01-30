@@ -1,0 +1,2 @@
+﻿6.	Write a program that removes from a text ﬁle all words listed in given another text ﬁle. 
+Handle all possible exceptions in your methods.
