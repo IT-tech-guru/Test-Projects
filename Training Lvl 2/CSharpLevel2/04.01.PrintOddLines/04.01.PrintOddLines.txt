@@ -1,0 +1,1 @@
+﻿1.	Write a program that reads a text ﬁle and prints on the console its odd lines.

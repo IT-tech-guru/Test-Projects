@@ -1,0 +1,2 @@
+﻿1.	Write a LINQ query that ﬁnds the ﬁrst name and last name of 
+all workers with age between 18 and 24.

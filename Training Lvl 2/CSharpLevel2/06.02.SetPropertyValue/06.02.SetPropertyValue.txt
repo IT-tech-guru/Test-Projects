@@ -1,0 +1,3 @@
+﻿2.	Create new instance of Worker. Get instance type. 
+Get property FullName by name from type. 
+Set property value to “Ivan Draganov” using Reﬂection.
